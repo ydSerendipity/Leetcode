@@ -26,32 +26,46 @@ public class bitCount {
         res[0] = 0;
         for (int i = 1;i <= num;i++){
 
-            res[i] = numOfOne(getBinary(i));
+//            res[i] = numOfOne(getBinary(i));
+            res[i] = getNumOne(i);
         }
         return res;
     }
 
-    //这里因为计算1的个数，只需要取str即可(求二进制结果需要将str翻转)
-    public String getBinary(int n){
-
-        String str = "";
-        while(n != 0){
-            str = str + n % 2;
-            n /= 2;
-        }
-        return str;
-    }
-
-    //统计str中1的个数
-    public int numOfOne(String str){
+    //可以直接统计1的个数，不用先转换成二进制再统计
+    public int getNumOne(int num){
 
         int count = 0;
-        for (int i = 0;i < str.length();i++){
-
-            if (str.charAt(i) == '1'){
+        while (num != 0){
+            if (num % 2 == 1){
                 count++;
             }
+            num /= 2;
         }
         return count;
     }
+
+    //这里因为计算1的个数，只需要取str即可(求二进制结果需要将str翻转)
+//    public String getBinary(int n){
+//
+//        String str = "";
+//        while(n != 0){
+//            str = str + n % 2;
+//            n /= 2;
+//        }
+//        return str;
+//    }
+
+    //统计str中1的个数
+//    public int numOfOne(String str){
+//
+//        int count = 0;
+//        for (int i = 0;i < str.length();i++){
+//
+//            if (str.charAt(i) == '1'){
+//                count++;
+//            }
+//        }
+//        return count;
+//    }
 }
