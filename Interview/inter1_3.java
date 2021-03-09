@@ -21,24 +21,17 @@ public class inter1_3 {
 
     public String replaceSpaces(String s, int length){
 
-        char[] c = new char[length];
-        int count = 0;
+        StringBuffer sb = new StringBuffer();
         for (int i = 0;i < length;i++){
-            c[i] = s.charAt(i);
-        }
-        for (int j = 0;j < c.length;j++){
-            if (c[j] == ' '){
-                count++;
+            if (s.charAt(i) == ' '){
+                sb.append('%');
+                sb.append('2');
+                sb.append('0');
+            }else{
+                sb.append(s.charAt(i));
             }
-        }
-        String[] res = new String[length + count];
-        for (int j = 0;j < res.length;j++){
 
-            if (c[j] == ' '){
-                res[j] = "%20";
-            }
-            res[j] = String.valueOf(c[j]);
         }
-        return Arrays.toString(res);
+        return sb.toString();
     }
 }
